@@ -1,0 +1,44 @@
+/* Custom Backstage header box overrides */
+
+/* Remove margin-bottom from all Backstage and MUI headers */
+.Header-root, .MuiToolbar-root, header {
+  margin-bottom: 0 !important;
+}
+
+
+/* Visually distinct main content container */
+.Content-root, .MuiContainer-root, main[role="main"] {
+  background: var(--content-bg, #fafbfc);
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  min-height: 60vh;
+  transition: background 0.3s;
+}
+
+body[data-theme="dark"] .Content-root, body[data-theme="dark"] .MuiContainer-root, body[data-theme="dark"] main[role="main"] {
+  --content-bg: #23272a;
+  color: #f5f6fa;
+}
+
+header input[type="text"] {
+  color: #111 !important;
+}
+header input[type="text"]::placeholder {
+  color: #888 !important;
+}
+
+.MuiIconButton-root-402.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26) !important;
+}
+
+header .MuiInputBase-root .MuiButton-label {
+  color: #111 !important;
+}
+header [class*="rightItemsBox"] {
+  width: 100% !important;
+}
+header [class*="leftItemsBox"] {
+  display: none !important;
+}

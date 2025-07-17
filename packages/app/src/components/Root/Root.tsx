@@ -1,9 +1,12 @@
 import { PropsWithChildren } from 'react';
-import { makeStyles } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import ExtensionIcon from '@material-ui/icons/Extension';
-import LibraryBooks from '@material-ui/icons/LibraryBooks';
-import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
+import { makeStyles } from '@mui/styles';
+import GroupIcon from '@mui/icons-material/Group';
+import HomeIcon from '@mui/icons-material/Home';
+import ExtensionIcon from '@mui/icons-material/Extension';
+import MenuIcon from '@mui/icons-material/Menu';
+import LibraryBooks from '@mui/icons-material/LibraryBooks';
+import CreateComponentIcon from '@mui/icons-material/Create';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import {
@@ -23,10 +26,7 @@ import {
   useSidebarOpenState,
   Link,
 } from '@backstage/core-components';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import { MyGroupsSidebarItem } from '@backstage/plugin-org';
-import GroupIcon from '@material-ui/icons/People';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -60,8 +60,12 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
   <SidebarPage>
     <Sidebar>
       <SidebarLogo />
-      <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
-        <SidebarSearchModal />
+      <SidebarGroup label="Business" icon={<GroupIcon />}>
+        <SidebarItem icon={DashboardIcon} to="dashboard" text="Dashboard" />
+        <SidebarItem icon={GroupIcon} to="business-units" text="Business Units" />
+        <SidebarItem icon={HomeIcon} to="projects" text="Projects" />
+        <SidebarItem icon={LibraryBooks} to="applications" text="Applications" />
+        <SidebarItem icon={ExtensionIcon} to="finops" text="FinOps" />
       </SidebarGroup>
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
@@ -76,7 +80,6 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
         {/* End global nav */}
-        <SidebarDivider />
         <SidebarScrollWrapper>
           {/* Items in this group will be scrollable if they run out of space */}
         </SidebarScrollWrapper>

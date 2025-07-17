@@ -1,4 +1,6 @@
-import { makeStyles, Theme, Grid, Paper } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 import { CatalogSearchResultListItem } from '@backstage/plugin-catalog';
 import {
@@ -46,7 +48,7 @@ const SearchPage = () => {
 
   return (
     <Page themeId="home">
-      <Header title="Search" />
+      <CustomHeader />
       <Content>
         <Grid container direction="row">
           <Grid item xs={12}>
